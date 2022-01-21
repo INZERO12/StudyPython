@@ -1,6 +1,5 @@
 # Bookrentalship.py
 # divbl, membertbl
-from __future__ import division
 import cx_Oracle as ora
 
 def myconn():
@@ -13,7 +12,6 @@ def getAllDataFromDivtbl(conn):
     query = 'SELECT * FROM divtbl'
     for row in cur.execute(query):
         print(row)
-    cur.close()
 
 def setDataIntoDivtbl(conn, tup):
     cur = conn.cursor()
@@ -68,6 +66,7 @@ def setChangeMemberFromMembertbl(conn, tup):
     cur.execute(query, tup)
     cur.close()
     conn.commit()
+
 
 def deleteDivision(conn, division):
     cur = conn.cursor()
